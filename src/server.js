@@ -1,16 +1,13 @@
-import express from 'express'
-
 const express = require ('express');
 
 
-const routes = require ('./routes');
+const routes = require ('./router');
 
 const app = express();
 app.use(express.json());
 
 app.use(routes);
 
-app.get('./usuarios')
 
-const PORT = 333;
-app.listen(PORT, () => console.log('Server is running on Port $(PORT)'));
+const PORT = 3333;
+app.listen(PORT, () => console.log('Server is running on Port 3333'));

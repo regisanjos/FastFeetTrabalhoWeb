@@ -1,9 +1,9 @@
-const express = require('express');
+const { Router } = require('express')
 const DeliverymanController = require('../controllers/deliverymanController');
-const RecipientController = require('../controllers/recipientController');
+const RecipientController = require('../controllers/RecipientController');
 // Importe outros controladores conforme necessário
 
-const router = express.Router();
+const router = Router();
 
 // Rotas para Deliveryman
 router.post('/deliverymen', DeliverymanController.create);

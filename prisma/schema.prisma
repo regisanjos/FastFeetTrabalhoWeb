@@ -9,23 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = "mysql://root:senai@localhost:3306/prisma?schema=public"
 }
 
-model User {
-  cpf      String   @id @unique
-  password String
-  
-}
 
 model User {
   id       String   @id @default(uuid())
-  name     String
   cpf      String   @unique
   password String
-  role     String
-  parcels  Parcel[]
+
+  parcel Parcel[]
+  
 }
 
 model Parcel {
@@ -34,8 +29,8 @@ model Parcel {
   status         String
   rackingCode    String
   typeDelivery   String
+  responsibleId  String
   responsible    User?   @relation(fields: [responsibleId], references: [id])
-  responsibleId  String?
 }
 
 model Recipient {
@@ -48,51 +43,4 @@ model Deliveryman {
   name      String
   phone     String   @unique
   available Boolean  @default(true)
-}
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
-}
-m
-
- 
-
- 
-
- 
-
- 
-
 }
