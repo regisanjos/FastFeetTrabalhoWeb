@@ -10,7 +10,7 @@ routes.post("/signIn", controller.singIn);
 
 routes.post("/signOut", ensureAuthenticated, controller.signOut);
 
-//CRUD
+
 
 // Exporta
 module.exports = routes;
