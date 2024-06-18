@@ -13,30 +13,80 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model usuario{
-  id    Int @id @default(autoincrement())
-  cpf   String  @unique
-  password  String
-  funcao String
-  entregas  Entrega[]
-    
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  cpf      String   @unique
+  password String
+  role     String
+  parcels  Parcel[]
 }
 
-model entrega {
-  id    Int @id @default(autoincrement())
-  status String
-  destinatarioId Int
-  entregadorId Int?
-  assinatura String
-  criadoEm      DateTime  @default(now())
-  atualizadoEm  DateTime  @updatedAt
-  Destinatario  Destinatario @relation(fields: [destinatarioId], references: [id])
-  Entregador    Usuario?  @relation(fields: [entregadorId], references: [id])
+model Parcel {
+  id             String  @id @default(uuid())
+  cep            Int
+  status         String
+  rackingCode    String
+  typeDelivery   String
+  responsible    User?   @relation(fields: [responsibleId], references: [id])
+  responsibleId  String?
+}
+
+model Recipient {
+
+  id   String @id @default(uuid())
+  name String
+}
+model Deliveryman {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String   @unique
+  available Boolean  @default(true)
+}
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
 
 }
-model Destinatario {
-  id          Int        @id @default(autoincrement())
-  nome        String
-  endereco    String
-  Entregas    Entrega[]
+m
+
+ 
+
+ 
+
+ 
+
+ 
+
 }
