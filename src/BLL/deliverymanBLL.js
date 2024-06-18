@@ -1,11 +1,15 @@
 const DeliverymanDAO = require('../DAO/deliverymanDao');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+
+const deliverymanDao = new DeliverymanDAO();
+
 class DeliverymanBLL {
+
     async createDeliveryman( name, phone, available) {
         try{
-            var de = new DeliverymanDAO()
-            const deliveryman = await de.create( name, phone, available);
+            
+            const deliveryman = await deliverymanDao.create( name, phone, available);
             return deliveryman;    
         }catch(e){
             console.log(e)
@@ -27,7 +31,7 @@ class DeliverymanBLL {
         return deliveryman;
     }
     async getAll(){
-        const allDelivery = await prisma.deliveryman.findMany({})
+        const allDelivery = deliverymanDao.getAll();
         return allDelivery;
     }
     
