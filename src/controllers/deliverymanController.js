@@ -14,8 +14,8 @@ class DeliverymanController {
 
     async update(request, response) {
         try {
-            const { id } = request.params;
-            const deliveryman = await DeliverymanBLL.updateDeliveryman(id, request.body);
+            const { id, name, phone, available } = request.params;
+            const deliveryman = await DeliverymanBLL.updateDeliveryman(id,name, phone, available);
             return response.json(deliveryman);
         } catch (error) {
             console.error('Error ao atualizar o  deliveryman:', error);
