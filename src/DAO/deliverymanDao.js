@@ -2,11 +2,13 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 class DeliverymanDAO {
-  async create({ name, phone }) {
+  
+  async create(name, phone, available) {
     const deliveryman = await prisma.deliveryman.create({
       data: {
         name,
         phone,
+        available
       },
     });
     return deliveryman;

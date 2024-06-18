@@ -9,6 +9,7 @@ const router = Router();
 router.post('/deliverymen', DeliverymanController.create);
 router.put('/deliverymen/:id', DeliverymanController.update);
 router.delete('/deliverymen/:id', DeliverymanController.delete);
+router.get('/deliverymen/', DeliverymanController.getAll);
 // Adicione outras rotas para deliverymen conforme necessário
 
 // Rotas para Recipient
