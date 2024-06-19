@@ -28,7 +28,7 @@ class DeliverymanController {
         try {
             const { id } = request.params;
             await DeliverymanBLL.deleteDeliveryman(id);
-            return response.status(204).send();
+            return response.status(200).send();
         } catch (error) {
             console.error('Error ao deletar o deliveryman:', error);
             return response.status(500).json({ message: 'Internal server error' });

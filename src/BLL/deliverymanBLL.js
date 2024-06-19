@@ -40,9 +40,26 @@ class DeliverymanBLL {
     }
 
     async deleteDeliveryman(id) {
-        // lógica
-        const deliveryman = await prisma.deliveryman.delete({ where: { id } });
-        return deliveryman;
+        try {
+            let deliveryman = null;
+            
+            id = parseInt(id)
+
+            const validatedDeliveryman =  await deliverymanDao.findUnique( id );
+            
+            if(validatedDeliveryman == null || validatedDeliveryman == undefined )
+            {
+                throw("");
+            }
+            else
+            {
+               deliveryman = deliverymanDao.delete( id)
+            };
+            return deliveryman;
+    
+        } catch (error) {
+            console.log(error);            
+        }
     }
 
     async getAll(){

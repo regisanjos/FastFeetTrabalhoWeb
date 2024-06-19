@@ -38,7 +38,7 @@ class DeliverymanDAO {
     return deliveryman;
   }
 
-  async delete({ id }) {
+  async delete( id ) {
     const deliveryman = await prisma.deliveryman.delete({
       where: { id },
     });
