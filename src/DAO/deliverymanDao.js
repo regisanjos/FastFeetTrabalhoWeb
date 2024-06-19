@@ -19,14 +19,14 @@ class DeliverymanDAO {
     return allDelivery;
 }
 
-  async findUnique({ id }) {
+  async findUnique( id ) {
     const deliveryman = await prisma.deliveryman.findUnique({
       where: { id },
     });
     return deliveryman;
   }
 
-  async update({ id, name, phone, available }) {
+  async update( id, name, phone, available ) {
     const deliveryman = await prisma.deliveryman.update({
       where: { id },
       data: {

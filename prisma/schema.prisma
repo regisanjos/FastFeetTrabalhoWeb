@@ -41,6 +41,6 @@ model Recipient {
 model Deliveryman {
   id        Int      @id @default(autoincrement())
   name      String
-  phone     String   @unique
+  phone     String 
   available Boolean  @default(true)
 }

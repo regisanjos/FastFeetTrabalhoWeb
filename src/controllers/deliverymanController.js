@@ -5,7 +5,7 @@ class DeliverymanController {
         try {
             const { name, phone, available } = request.body;
             const deliveryman = await DeliverymanBLL.createDeliveryman( name, phone, available);
-            return response.status(201).json(deliveryman);
+            return response.status(200).json(deliveryman);
         } catch (error) {
             console.error('Error ao crear o deliveryman:', error);
             return response.status(500).json({ message: 'Internal server error' });
@@ -14,7 +14,8 @@ class DeliverymanController {
 
     async update(request, response) {
         try {
-            const { id, name, phone, available } = request.params;
+            const { id } = request.params;
+            const { name, phone, available } = request.body;
             const deliveryman = await DeliverymanBLL.updateDeliveryman(id,name, phone, available);
             return response.json(deliveryman);
         } catch (error) {

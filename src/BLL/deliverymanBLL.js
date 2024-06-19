@@ -18,12 +18,19 @@ class DeliverymanBLL {
 
     async updateDeliveryman(id, name, phone, available) {
         try {
-            const validatedDeliveryman =  deliverymanDao.findUnique( id );
             let deliveryman = null;
-            if(validatedDeliveryman == null || validatedDeliveryman == undefined ){
-                throw
-            }else{
-               deliveryman = deliverymanDao.update(name, phone, available)
+            
+            id = parseInt(id)
+
+            const validatedDeliveryman =  await deliverymanDao.findUnique( id );
+            
+            if(validatedDeliveryman == null || validatedDeliveryman == undefined )
+            {
+                throw("");
+            }
+            else
+            {
+               deliveryman = deliverymanDao.update( id, name, phone, available)
             };
             return deliveryman;
     
