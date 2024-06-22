@@ -6,10 +6,10 @@ const RecipientController = require('../controllers/RecipientController');
 const router = Router();
 
 
-router.post('/deliverymen', DeliverymanController.create);
-router.put('/deliverymen/:id', DeliverymanController.update);
-router.delete('/deliverymen/:id', DeliverymanController.delete);
-router.get('/deliverymen/', DeliverymanController.getAll);
+router.post('/deliveryman', DeliverymanController.create);
+router.put('/deliveryman/:id', DeliverymanController.update);
+router.delete('/deliveryman/:id', DeliverymanController.delete);
+router.get('/deliveryman/', DeliverymanController.getAll);
 
 
 
